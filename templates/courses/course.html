@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load humanize %}
 {% block title %} | Single course {% endblock %}
-{% block content %}
+{% block body %}
 
-<section id="showcase-inner" class="py-5 text-white">
+<section id="showcase-inner" class="py-5 text-grey">
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
@@ -31,11 +31,11 @@
               <ul class="list-group list-group-flush">
 
 
-                <li class="list-group-item text-secondary">
+                <li class="list-group-item text-black">
                   <i class="fas fa-calendar"></i> Starting Date:
                   <span class="float-right">{{course.start_date}}</span>
                 </li>
-                <li class="list-group-item text-secondary">
+                <li class="list-group-item text-black">
                   <i class="fas fa-user"></i> Instructor:
                   <span class="float-right">{{course.instructor}}
                   </span>
@@ -57,7 +57,7 @@
           <div class="card mb-3">
             <img class="card-img-top" src="{{course.instructor.photo.url}}" alt="">
             <div class="card-body">
-              <h5 class="card-title">Mountaineer</h5>
+              <h5 class="card-title">Instructor</h5>
               <h6 class="text-secondary">{{course.instructor}}</h6>
             </div>
           </div>
@@ -78,53 +78,10 @@
             <span>&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          {% include 'partials/_alerts.html' %}
-          <form action="{% url 'contact' %}" method="POST">
-            {% csrf_token %}
-            {% if user.is_authenticated %}
 
-            <input type="hidden" name="user_id" value="{{user.id}}" >
-
-            {% else %}
-
-            <input type="hidden" name="user_id" value="0" >
-
-            {% endif %}
-
-            <input type="hidden" name="mountaineer_email" value="{{course.mountaineer.email}}">
-            <input type="hidden" name="course_id" value="{{course.id}}">
-            <div class="form-group">
-              <label for="course_name" class="col-form-label">course:</label>
-              <input type="text" name="course" class="form-control" value="{{course.title}}" required>
-            </div>
-            <div class="form-group">
-              <label for="name" class="col-form-label">Name:</label>
-              <input type="text" name="name" class="form-control" {% if user.is_authenticated %}
-                     value="{{user.first_name}} {{user.last_name}}" {%endif %} required>
-            </div>
-            <div class="form-group">
-              <label for="email" class="col-form-label">Email:</label>
-              <input type="email" name="email" class="form-control"{% if user.is_authenticated %}
-                     value="{{user.email}}" {%endif %} required>
-            </div>
-            <div class="form-group">
-              <label for="phone" class="col-form-label">Phone:</label>
-              <input type="text" name="phone" class="form-control"{% if user.is_authenticated %}
-                     value="{{user.phone}}" {%endif %} required >
-            </div>
-            <div class="form-group">
-              <label for="message" class="col-form-label">Message:</label>
-              <textarea name="message" class="form-control"></textarea>
-            </div>
-            <hr>
-            <input type="submit" value="Send" class="btn btn-block btn-secondary">
-          </form>
-
-        </div>
       </div>
     </div>
   </div>
 
 
-{% endblock content %}
+{% endblock %}

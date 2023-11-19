@@ -3,14 +3,14 @@
 {% load humanize %}
 {% block title %} | courses {% endblock %}
 
-{% block content %}
+{% block body %}
 
 
-  <section id="showcase-inner" class="py-5 text-white">
+  <section id="showcase-inner" class="py-5 text-black">
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <h1 class="display-4">courses</h1>
+          <h1 class="display-4">Courses</h1>
           <p class="lead">Hello to Learner</p>
         </div>
       </div>
@@ -18,35 +18,45 @@
   </section>
 
   <!-- Breadcrumb -->
-  <section id="bc" class="mt-3">
-    <div class="container-fluid">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="{% url 'index' %}">
-              <i class="fas fa-home"></i> Home</a>
-          </li>
-          <li class="breadcrumb-item active"> Browse courses</li>
-        </ol>
-      </nav>
-    </div>
-  </section>
+
 
   <!-- courses -->
   <section id="trails" class="py-4">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
 
         {% if courses %}
 
           {% for course in courses %}
 
-              <div class="col-md-6 col-lg-4 mb-4">
+
+
+             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card listing-preview">
                   <img class="card-img-top" src="{{ course.photo_main.url }}" alt="">
                   <div class="card-img-overlay">
 
+
+
                     <hr>
+                    <div class="row py-2 text-black">
+                      <div class="col-12">
+                        <i class="fas fa-user"></i> {{course.instructor}}</div>
+                    </div>
+                    <div class="card-text ">
+                      <div class="col-6">
+                        <i class="fas fa-clock"></i> {{course.start_date | timesince}}</div>
+                    </div>
+                    <hr>
+
+
+                <div class="card-body">
+                    <div class="listing-preview-heading text-center">
+                      <h4 class="text-primary">{{ course.title }}</h4>
+                      <p>
+                        <i class="fas fa-user"></i> {{course.instructor}}</div>
+                    <hr>
+
                     <div class="row py-2 text-secondary">
                       <div class="col-12">
                         <i class="fas fa-user"></i> {{course.instructor}}</div>
@@ -56,6 +66,9 @@
                         <i class="fas fa-clock"></i> {{course.start_date | timesince}}</div>
                     </div>
                     <hr>
+
+                  </div>
+
                     <a href="{% url 'course' course.id %}" class="btn btn-primary btn-block">More Info</a>
                   </div>
                 </div>
@@ -117,4 +130,4 @@
       </div>
     </div>
   </section>
-{% endblock content %}
+{% endblock %}

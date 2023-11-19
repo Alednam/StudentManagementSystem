@@ -25,88 +25,20 @@
           <!-- Thumbnails -->
           <div class="row mb-5 thumbs">
 
-
-            {%if course.photo_1%}
-            <div class="col-md-2">
-              <a href="{{ course.photo_1.url}}" data-lightbox="home-images">
-                <img src="{{ course.photo_1.url}}" alt="" class="img-fluid">
-              </a>
-            </div>
-            {% endif %}
-
-            {%if course.photo_2%}
-            <div class="col-md-2">
-              <a href="{{ course.photo_2.url}}" data-lightbox="home-images">
-                <img src="{{ course.photo_2.url}}" alt="" class="img-fluid">
-              </a>
-            </div>
-            {% endif %}
-
-            {%if course.photo_3%}
-            <div class="col-md-2">
-              <a href="{{ course.photo_3.url}}" data-lightbox="home-images">
-                <img src="{{ course.photo_3.url}}" alt="" class="img-fluid">
-              </a>
-            </div>
-            {% endif %}
-
-            {%if course.photo_4%}
-            <div class="col-md-2">
-              <a href="{{ course.photo_4.url}}" data-lightbox="home-images">
-                <img src="{{ course.photo_4.url}}" alt="" class="img-fluid">
-              </a>
-            </div>
-            {% endif %}
-
-            {%if course.photo_5%}
-            <div class="col-md-2">
-              <a href="{{ course.photo_5.url}}" data-lightbox="home-images">
-                <img src="{{ course.photo_5.url}}" alt="" class="img-fluid">
-              </a>
-            </div>
-            {% endif %}
-
-            {%if course.photo_6%}
-            <div class="col-md-2">
-              <a href="{{ course.photo_6.url}}" data-lightbox="home-images">
-                <img src="{{ course.photo_6.url}}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-          {%endif%}
           <!-- Fields -->
           <div class="row mb-5 fields">
-            <div class="col-md-6">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item text-secondary">
-                  <i class="fas fa-money-bill-alt"></i> Billing Price (dollars):
-                  <span class="float-right">$ {{course.price | intcomma }}</span>
-                </li>
-                <li class="list-group-item text-secondary">
-                  <i class="fas fa-man"></i> difficulty rating:
-                  <span class="float-right">{{course.difficulty_rating}}</span>
-                </li>
 
-              </ul>
-            </div>
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
+
+
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-clock"></i> hours to summit:
-                  <span class="float-right">{{course.hrs_to_summit }}</span>
+                  <i class="fas fa-calendar"></i> Starting Date:
+                  <span class="float-right">{{course.start_date}}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-square"></i> No.of Routes:
-                  <span class="float-right">{{course.No_of_routes}}
-                  </span>
-                </li>
-                <li class="list-group-item text-secondary">
-                  <i class="fas fa-calendar"></i> Hike Date:
-                  <span class="float-right">{{course.course_date}}</span>
-                </li>
-                <li class="list-group-item text-secondary">
-                  <i class="fas fa-user"></i> Mountaineer:
-                  <span class="float-right">{{course.mountaineer}}
+                  <i class="fas fa-user"></i> Instructor:
+                  <span class="float-right">{{course.instructor}}
                   </span>
                 </li>
 
@@ -124,10 +56,10 @@
         </div>
         <div class="col-md-3">
           <div class="card mb-3">
-            <img class="card-img-top" src="{{course.mountaineer.photo.url}}" alt="">
+            <img class="card-img-top" src="{{course.instructor.photo.url}}" alt="">
             <div class="card-body">
               <h5 class="card-title">Mountaineer</h5>
-              <h6 class="text-secondary">{{course.mountaineer}}</h6>
+              <h6 class="text-secondary">{{course.instructor}}</h6>
             </div>
           </div>
           <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>

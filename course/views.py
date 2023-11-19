@@ -9,7 +9,7 @@ from django.shortcuts import render, get_object_or_404
 
 
 # Create your views here.
-def index(request):
+def courses(request):
     courses = Course.objects.order_by('-start_date').filter(is_published=True)
 
     paginator = Paginator(courses, 6)

@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from instructor.models import Instructor
 
 
-
 def about(request):
     instructors= Instructor.objects.order_by('-registered_date')
     # getmvp
